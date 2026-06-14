@@ -1,0 +1,738 @@
+{
+  "info": {
+    "_postman_id": "3efe79af-7c40-449f-b4ad-97aa402f01ad",
+    "name": "lab3-ai-244-kurylenko",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "53651675"
+  },
+  "item": [
+    {
+      "name": "GET all seat classes",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8080/seat-classes",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "seat-classes"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "POST valid seat class",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"name\": \"Premium\",\r\n  \"description\": \"Very comfortable premium seats\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:8080/seat-classes",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "seat-classes"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "POST invalid seat class",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"name\": \"\",\r\n  \"description\": \"bad\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:8080/seat-classes",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "seat-classes"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "GET passenger not found",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8080/passengers/999999",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "passengers",
+            "999999"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "POST valid passenger",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"firstName\": \"Ilona\",\r\n  \"lastName\": \"Kurylenko\",\r\n  \"email\": \"ilona@gmail.com\",\r\n  \"passportNumber\": \"AA123456\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:8080/passengers",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "passengers"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "POST invalid passenger",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"firstName\": \"\",\r\n  \"lastName\": \"K\",\r\n  \"email\": \"not-email\",\r\n  \"passportNumber\": \"\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:8080/passengers",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "passengers"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "POST duplicate passenger email",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"firstName\": \"Ilona\",\r\n  \"lastName\": \"Kurylenko\",\r\n  \"email\": \"ilona@gmail.com\",\r\n  \"passportNumber\": \"AA123456\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:8080/passengers",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "passengers"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "POST invalid flight date",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"flightNumber\": \"PS101\",\r\n  \"departureCity\": \"Kyiv\",\r\n  \"arrivalCity\": \"Warsaw\",\r\n  \"departureTime\": \"2020-01-01T10:00:00\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:8080/flights",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "flights"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "POST valid flight",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"flightNumber\": \"PS101\",\r\n  \"departureCity\": \"Kyiv\",\r\n  \"arrivalCity\": \"Warsaw\",\r\n  \"departureTime\": \"2027-12-25T10:00:00\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:8080/flights",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "flights"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "GET flight not found",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8080/flights/999999",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "flights",
+            "999999"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "GET all flights",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8080/flights",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "flights"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "POST invalid booking status",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"bookingDate\": \"2027-12-25T10:00:00\",\r\n  \"status\": \"CANCELLED\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:8080/bookings",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "bookings"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "POST valid booking",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"bookingDate\": \"2027-12-25T10:00:00\",\r\n  \"status\": \"CREATED\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:8080/bookings",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "bookings"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "GET all bookings",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8080/bookings",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "bookings"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "GET booking not found",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8080/bookings/999999",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "bookings",
+            "999999"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "POST confirmed booking",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"bookingDate\": \"2027-12-30T10:00:00\",\r\n  \"status\": \"CONFIRMED\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:8080/bookings",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "bookings"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "DELETE confirmed booking",
+      "request": {
+        "method": "DELETE",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8080/bookings/11",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "bookings",
+            "11"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "GET actuator health",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8080/actuator/health",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "actuator",
+            "health"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "GET analytics flights count",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8080/analytics/flights/count",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "analytics",
+            "flights",
+            "count"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "GET search flights",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8080/search/flights?query=Kyiv",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "search",
+            "flights"
+          ],
+          "query": [
+            {
+              "key": "query",
+              "value": "Kyiv"
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "GET all passengers",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8080/passengers",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "passengers"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "GET passenger by id",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8080/passengers/3",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "passengers",
+            "3"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "PUT valid passenger",
+      "request": {
+        "method": "PUT",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"firstName\": \"Ilona\",\r\n  \"lastName\": \"Kurylenko\",\r\n  \"email\": \"ilona.updated@gmail.com\",\r\n  \"passportNumber\": \"AA123456\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:8080/passengers/3",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "passengers",
+            "3"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "PUT invalid passenger",
+      "request": {
+        "method": "PUT",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"firstName\": \"\",\r\n  \"lastName\": \"K\",\r\n  \"email\": \"wrong-email\",\r\n  \"passportNumber\": \"\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:8080/passengers/3",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "passengers",
+            "3"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "PUT valid booking",
+      "request": {
+        "method": "PUT",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"bookingDate\": \"2027-12-30T10:00:00\",\r\n  \"status\": \"CREATED\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:8080/bookings/1",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "bookings",
+            "1"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "PUT invalid booking date",
+      "request": {
+        "method": "PUT",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"bookingDate\": \"2020-01-01T10:00:00\",\r\n  \"status\": \"CREATED\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:8080/bookings/1",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "bookings",
+            "1"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "GET seat class by id",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8080/seat-classes/1",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "seat-classes",
+            "1"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "GET seat class not found",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8080/seat-classes/9999",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "seat-classes",
+            "9999"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "DELETE seat class",
+      "request": {
+        "method": "DELETE",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8080/seat-classes/2",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "seat-classes",
+            "2"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "PUT valid flight",
+      "request": {
+        "method": "PUT",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"flightNumber\": \"PS101\",\r\n  \"departureCity\": \"Kyiv\",\r\n  \"arrivalCity\": \"Warsaw\",\r\n  \"departureTime\": \"2027-12-30T15:00:00\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:8080/flights/1",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "flights",
+            "1"
+          ]
+        }
+      },
+      "response": []
+    }
+  ]
+}
